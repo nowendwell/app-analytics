@@ -2,13 +2,14 @@
 
 namespace Nowendwell\AppAnalytics;
 
-use Nowendwell\AppAnalytics\Session;
 use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
     protected $table = 'app_analytics_events';
+
     protected $guarded = [];
+
     protected $casts = [
         'data' => 'array',
     ];

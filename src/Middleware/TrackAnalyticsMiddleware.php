@@ -3,9 +3,8 @@
 namespace Nowendwell\AppAnalytics\Middleware;
 
 use Closure;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Nowendwell\AppAnalytics\Event;
+use Illuminate\Support\Str;
 use Nowendwell\AppAnalytics\Facades\AppAnalytics;
 use Nowendwell\AppAnalytics\Session;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,19 +23,19 @@ class TrackAnalyticsMiddleware
 
     public function terminate(Request $request, Response $response)
     {
-        if(config('app-analytics.enabled') !== true){
+        if (config('app-analytics.enabled') !== true) {
             return;
         }
 
         // skip if if's in the ignore path
         $ignored_paths = config('app-analytics.ignored_paths', []);
-        foreach($ignored_paths as $path){
-            if(Str::is($path, $request->path())){
+        foreach ($ignored_paths as $path) {
+            if (Str::is($path, $request->path())) {
                 return;
             }
         }
 
-        $session_id = rescue(fn() => $request->session()->getId(), Str::random(12), false);
+        $session_id = rescue(fn () => $request->session()->getId(), Str::random(12), false);
 
         $session = Session::firstOrCreate([
             'session_id' => $session_id,
@@ -52,7 +51,7 @@ class TrackAnalyticsMiddleware
         $session->actions()->create([
             'method' => $request->method(),
             'uri' => $request->path(),
-            'payload' => !empty($payload) ? $payload : null,
+            'payload' => ! empty($payload) ? $payload : null,
             // 'ip_address' => $request->ip(),
             // 'user_agent' => $request->userAgent(),
             'status' => $response->status(),
@@ -61,7 +60,7 @@ class TrackAnalyticsMiddleware
             'duration' => (microtime(true) - LARAVEL_START) * 1000,
         ]);
 
-        if($events = AppAnalytics::getEvents()){
+        if ($events = AppAnalytics::getEvents()) {
             $session->events()->createMany($events);
         }
     }
