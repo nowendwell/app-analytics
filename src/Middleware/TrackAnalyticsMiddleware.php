@@ -35,6 +35,14 @@ class TrackAnalyticsMiddleware
             }
         }
 
+        // skip if it's in the ignore user agents
+        $ignored_user_agents = config('app-analytics.ignored_user_agents', []);
+        foreach ($ignored_user_agents as $user_agent) {
+            if (Str::is($user_agent, $request->userAgent())) {
+                return;
+            }
+        }
+
         $session_id = rescue(fn () => $request->session()->getId(), Str::random(12), false);
 
         $session = Session::firstOrCreate([
