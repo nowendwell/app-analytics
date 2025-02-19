@@ -4,7 +4,6 @@ namespace Nowendwell\AppAnalytics;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Nowendwell\AppAnalytics\Commands\AppAnalyticsCommand;
 
 class AppAnalyticsServiceProvider extends PackageServiceProvider
 {

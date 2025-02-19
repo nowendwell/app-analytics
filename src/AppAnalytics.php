@@ -2,10 +2,11 @@
 
 namespace Nowendwell\AppAnalytics;
 
-class AppAnalytics {
+class AppAnalytics
+{
     protected $events = [];
 
-    public function event(string $name, array $data = [], string $category = null): void
+    public function event(string $name, array $data = [], ?string $category = null): void
     {
         $this->events[] = [
             'name' => $name,

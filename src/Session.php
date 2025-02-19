@@ -2,13 +2,13 @@
 
 namespace Nowendwell\AppAnalytics;
 
-use Nowendwell\AppAnalytics\Event;
-use Illuminate\Foundation\Auth\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User;
 
 class Session extends Model
 {
     protected $table = 'app_analytics_sessions';
+
     protected $guarded = [];
 
     public function __construct()

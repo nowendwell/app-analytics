@@ -2,14 +2,15 @@
 
 namespace Nowendwell\AppAnalytics;
 
-use Nowendwell\AppAnalytics\Session;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\AsEncryptedArrayObject;
+use Illuminate\Database\Eloquent\Model;
 
 class Action extends Model
 {
     protected $table = 'app_analytics_actions';
+
     protected $guarded = [];
+
     protected $casts = [
         'payload' => AsEncryptedArrayObject::class,
         'response_headers' => 'array',
