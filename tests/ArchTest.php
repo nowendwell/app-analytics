@@ -1,6 +1,6 @@
 <?php
 
-if(!function_exists('arch')) {
+if (! function_exists('arch')) {
     return;
 }
 
