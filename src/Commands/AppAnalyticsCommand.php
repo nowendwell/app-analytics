@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Nowendwell\AppAnalytics\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class AppAnalyticsCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'app-analytics';
 
     public $description = 'My command';
 
