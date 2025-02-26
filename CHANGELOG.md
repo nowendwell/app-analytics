@@ -2,6 +2,10 @@
 
 All notable changes to `app-analytics` will be documented in this file.
 
+## 0.2.1 - 2025-02-26
+
+**Full Changelog**: https://github.com/nowendwell/app-analytics/compare/0.2.0...0.2.1
+
 ## 0.2.0 - 2025-02-19
 
 Added ability to ignore requests from certain user agents
