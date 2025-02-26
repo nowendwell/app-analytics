@@ -27,6 +27,10 @@ class TrackAnalyticsMiddleware
             return;
         }
 
+        if(!config('app-analytics.track_guests') && !auth()->check()) {
+            return;
+        }
+
         // skip if if's in the ignore path
         $ignored_paths = config('app-analytics.ignored_paths', []);
         foreach ($ignored_paths as $path) {

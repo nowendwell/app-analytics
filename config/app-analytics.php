@@ -12,6 +12,11 @@ return [
     'database_connection' => env('APP_ANALYTICS_DATABASE_CONNECTION', 'mysql'),
 
     /**
+     * Whether to track logged out traffic or not
+     */
+    'track_guests' => env('APP_ANALYTICS_TRACK_GUESTS', true),
+
+    /**
      * Any paths that should be ignored from being tracked. Wildcard support via Str::is()
      */
     'ignored_paths' => [
