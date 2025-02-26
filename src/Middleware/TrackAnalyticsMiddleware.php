@@ -27,7 +27,7 @@ class TrackAnalyticsMiddleware
             return;
         }
 
-        if(!config('app-analytics.track_guests') && !auth()->check()) {
+        if (! config('app-analytics.track_guests') && ! auth()->check()) {
             return;
         }
 
